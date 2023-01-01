@@ -1,6 +1,6 @@
 # YTU2I
 
-YTU2I is a CLI tool to identify channel id from youtube username.
+YTU2I is a CLI tool to identify channel id from YouTube username(handle).
 
 ## Usage
 
