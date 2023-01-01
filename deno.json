@@ -1,0 +1,17 @@
+{
+  "tasks": {
+    "dev": "deno fmt && deno lint && deno task test --fail-fast",
+    "run": "deno run --allow-net ytu2i.ts",
+    "test": "deno test --allow-read --allow-env --allow-run --allow-net"
+  },
+
+  "fmt": {
+    "files": {
+      "exclude": ["README.md"]
+    },
+    "options": {
+      "useTabs": false,
+      "lineWidth": 160
+    }
+  }
+}
