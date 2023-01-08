@@ -6,7 +6,7 @@ if (Deno.args.length !== 1) {
 }
 
 try {
-  /** 
+  /**
    * The channel URL of the user whose channel id want to extract.
    * only support `https://www.youtube.com/@handle`
    * TODO: validate user input
@@ -20,7 +20,7 @@ try {
   }
 
   /**
-   * URL include channel id. 
+   * URL include channel id.
    * It is included in the link tag like the example in.
    * <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.youtube.com/feeds/videos.xml?channel_id=xxxx">
    */
