@@ -26,7 +26,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.31.1
+          deno-version: v1.31.1 # @denopendabot hasundue/denopendabot
 
       - name: Format
         run: deno fmt --check
