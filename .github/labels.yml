@@ -1,0 +1,27 @@
+- name: documentation
+  description: Improvement or additons to documentation
+  color: 0075ca
+- name: bug
+  description: Something isn't working
+  color: d73a4a
+- name: feature
+  description: New feature
+  color: d93f0b
+- name: discussion
+  description: Discussion
+  color: cfd3d7
+- name: enhancement
+  description: Enhancement
+  color: d876e3
+- name: test
+  description: Test
+  color: a2eeef
+- name: refactoring
+  description: refactor
+  color: 0e8a16
+- name: publishing
+  description: publish
+  color: 5319e7
+- name: ci
+  description: ci
+  color: e4e669
