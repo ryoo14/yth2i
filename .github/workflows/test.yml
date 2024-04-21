@@ -1,11 +1,10 @@
 name: Test
 
 on:
-  pull_request:
-    branches: 
+  push:
+    branches:
       - main
-    paths-ignore:
-      - '**.md'
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -26,7 +25,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.31.1 # @denopendabot denoland/deno
+          deno-version: 1.x
 
       - name: Format
         run: deno fmt --check
