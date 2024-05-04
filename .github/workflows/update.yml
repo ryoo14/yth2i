@@ -19,13 +19,16 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git switch -c update-dependancy
+          git switch -c update-dependency
       - run: deno task update:commit
       - name: diff
         id: check_update
         run: |
-          git diff --quiet main..update-dependancy
-          echo "rn=$?" >> $GITHUB_OUTPUT
+          if git diff --quiet main..update-dependency; then
+            echo "rn=1" >> $GITHUB_OUTPUT
+          else
+            echo "rn=0" >> $GITHUB_OUTPUT
+          fi
       - run: |
           gh pr create -B main -t "Update Dependency" -l "depenencies"
           echo "rn=$?" >> $GITHUB_OUTPUT
