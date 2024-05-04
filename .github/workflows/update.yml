@@ -24,6 +24,7 @@ jobs:
       - run: |
           git diff --quiet main..update-dependancy
           echo "rn=$?" >> $GITHUB_OUTPUT
+          exit 0
         id: check_update
       - run: |
           gh pr create -B main -t "Update Dependency" -l "depenencies"
