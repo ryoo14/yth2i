@@ -30,7 +30,7 @@ jobs:
             echo "rn=false" >> $GITHUB_OUTPUT
           fi
       - run: |
-          gh pr create -B main -t "Update Dependency" -l "depenencies"
+          gh pr create -B main -t "Update Dependency" -b "" -l "depenencies"
         id: pr_create
         if: ${{ steps.check_update.outputs.rn }} == "true"
       - run: gh pr merge --merge --auto --delete-branch
