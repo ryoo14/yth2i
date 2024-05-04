@@ -1,4 +1,4 @@
-{ 
+{
   "tasks": {
     "dev": "deno fmt && deno lint && deno task test --fail-fast",
     "run": "deno run --allow-net ytu2i.ts",
