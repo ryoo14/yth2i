@@ -1,0 +1,34 @@
+name: Update
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  main:
+    name: update dependency
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: 1.x
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git switch -c update-dependancy
+      - run: deno task update:commit
+      - run: |
+          git diff --quiet main..update-dependancy
+          echo "rn=$?" >> $GITHUB_OUTPUT
+        id: check_update
+      - run: |
+          gh pr create -B main -t "Update Dependency" -l "depenencies"
+          echo "rn=$?" >> $GITHUB_OUTPUT
+        id: pr_create
+        if: "${{ steps.check_update.outputs.rn == 1 }}"
+      - run: gh pr merge --merge --auto --delete-branch
+        if: "${{ steps.pr_create.outputs.rn == 1 }}"
