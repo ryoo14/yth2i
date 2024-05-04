@@ -29,6 +29,7 @@ jobs:
           else
             echo "rn=false" >> $GITHUB_OUTPUT
           fi
+      - run: git push -u origin update-dependency
       - run: |
           gh pr create -B main -t "Update Dependency" -b "" -l "depenencies"
         id: pr_create
