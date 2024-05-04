@@ -31,7 +31,7 @@ jobs:
           fi
       - run: git push -u origin update-dependency
       - run: |
-          gh pr create -B main -t "Update Dependency" -b "" -l "depenencies"
+          gh pr create -B main -t "Update Dependency" -b "" -l "dependencies"
         id: pr_create
         if: ${{ steps.check_update.outputs.rn }} == "true"
       - run: gh pr merge --merge --auto --delete-branch
