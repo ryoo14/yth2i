@@ -32,6 +32,6 @@ jobs:
       - run: |
           gh pr create -B main -t "Update Dependency" -l "depenencies"
         id: pr_create
-        if: ${{ steps.check_update.outputs.rn == "true" }}
+        if: ${{ steps.check_update.outputs.rn }} == "true"
       - run: gh pr merge --merge --auto --delete-branch
-        if: ${{ steps.check_update.outputs.rn == "true" }}
+        if: ${{ steps.check_update.outputs.rn }} == "true"
