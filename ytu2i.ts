@@ -1,4 +1,4 @@
-import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.45/deno-dom-wasm.ts"
+import { DOMParser } from "deno_dom"
 
 if (Deno.args.length !== 1) {
   console.error("Pleases input only one args.")
