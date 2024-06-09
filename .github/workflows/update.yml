@@ -32,11 +32,17 @@ jobs:
           app-id: ${{ secrets.GENERATE_TOKEN_ID }}
           private-key: ${{ secrets.GENERATE_TOKEN_SECRET }}
         if: steps.check_update.outputs.rn == 'true'
-      - run: git push -f -u origin update-dependency
+      - run: git push -f origin update-dependency
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         if: steps.check_update.outputs.rn == 'true'
       - run: gh pr create -B main -t "Update Dependency" -b "" -l "dependencies"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        if: steps.check_update.outputs.rn == 'true'
+      - run: sleep 60
+        if: steps.check_update.outputs.rn == 'true'
+      - run: gh pr merge --merge --auto --delete-branch
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         if: steps.check_update.outputs.rn == 'true'
