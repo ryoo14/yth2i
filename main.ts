@@ -37,5 +37,7 @@ try {
 
   console.log(channelId)
 } catch (e) {
-  console.error(e.message)
+  if (e instanceof Error) {
+    console.error(e.message)
+  }
 }
