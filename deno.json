@@ -1,4 +1,7 @@
 {
+  "name": "@ryoo/ytu2i",
+  "version": "0.3.3",
+  "exports": "./main.ts",
   "tasks": {
     "dev": "deno fmt && deno lint && deno task test --fail-fast",
     "run": "deno run --allow-net ytu2i.ts",
